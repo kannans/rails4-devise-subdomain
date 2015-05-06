@@ -27,19 +27,25 @@
                               <i class="fa fa-key"></i>
                             </div>
                             </div>
-                            <div class="form-bottom">
-                          <form role="form" action="" method="post" class="login-form">
-                            <div class="form-group">
-                              <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
-                              </div>
+                          <div class="form-bottom">
+                            <%= form_for(resource, as: resource_name, url: session_path(resource_name),  html: {:class=>"login-form"}) do |f| %>
+
                               <div class="form-group">
-                                <label class="sr-only" for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
-                              </div>
-                              <button type="submit" class="btn">Sign in!</button>
-                          </form>
-                        </div>
+                                <label class="sr-only" for="form-username">Email</label>
+                                  <!-- <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username"> -->
+                                  <%= f.email_field :email, autofocus: true, :class=>"form-control", placeholder: "Enter Email..."  %>
+                                </div>
+                                <div class="form-group">
+                                  <label class="sr-only" for="form-password">Password</label>
+                                  <!-- <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password"> -->
+                                  <%= f.password_field :password, autocomplete: "off", :class=>"form-control", placeholder: "Enter password..." %>
+                                </div>
+                                <button type="submit" class="btn">Sign in!</button>
+                            <% end %>                           
+
+                              <a href="#" class="text-left"> Forget password <i class="fa fa-question"></i></a>
+                              <a href="/users/sign_up" class="text-right" style="float:right; "> Register <i class="fa fa-pencil"> </i></a>
+                          </div>
                         </div>
                     </div>
                     <div class="row">
