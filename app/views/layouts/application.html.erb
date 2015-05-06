@@ -12,6 +12,10 @@
 </head>
 <body>
 <div class="container">
+
+<%= link_to "Login to your system", root_url(:subdomain => current_user.subdomain) %>
+<%= link_to "blogs", blogs_url %>
+
 <%= yield %>
 </div>
 </body>

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard' => 'dashboard#index'
+
+  get 'welcome/index'
+
   devise_for :users
   resources :posts
   resources :blogs
 
 
-  match '/', to: 'blogs#index', constraints: { subdomain: 'www' }, via: [:get, :post, :put, :patch, :delete]
-  match '/', to: 'blogs#show', constraints: { subdomain: /.+/ }, via: [:get, :post, :put, :patch, :delete]
+  match '/', to: 'welcome#index', constraints: { subdomain: 'www' }, via: [:get, :post, :put, :patch, :delete]
+  match '/', to: 'welcome#show', constraints: { subdomain: /.+/ }, via: [:get, :post, :put, :patch, :delete]
 
   root "blogs#index"
 
